@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import logotype from "../assets/logo.svg"
-import "./logo.scss"
+import "./scss/logo.scss"
 export const Logo = () => {
   return (
     <Link to="/"  className='

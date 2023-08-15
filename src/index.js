@@ -22,7 +22,7 @@ const router = createBrowserRouter([
         element:<Crypto/>
       },
       {
-        path:"/trending",
+        path:"/popular",
         element:<Trending/>
       },
       {

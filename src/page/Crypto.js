@@ -1,8 +1,12 @@
 import React from 'react'
-
+import "./scss/crypto.scss"
+import TableComponents from '../components/TableComponents'
 const Crypto = () => {
   return (
-    <div>Crypto</div>
+    <section className='sectTable'>
+        <TableComponents/>
+
+    </section>
   )
 }
 
