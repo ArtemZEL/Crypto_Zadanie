@@ -2,11 +2,11 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import { Logo } from "../components/Logo";
 import Navigation from "../components/Navigation";
-import { CryptoProvder } from "../context/CryptoContext";
+import { CryptoProvider } from "../context/CryptoContext";
 
 const Home =()=> {
   return (
-    <CryptoProvder>
+    <CryptoProvider>
     <header
       className=" w-full h-full flex flex-col first-letter:
         content-center items-center relative text-white font-nunito
@@ -17,7 +17,7 @@ const Home =()=> {
       <Navigation />
       <Outlet />
     </header>
-    </CryptoProvder>
+    </CryptoProvider>
   );
 }
 

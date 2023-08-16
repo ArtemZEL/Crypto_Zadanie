@@ -1,23 +1,32 @@
-import { createContext, useState } from "react";
+import { createContext, useLayoutEffect, useState } from "react";
 
 //Создаем context object crypto
-export const CryptoContext=createContext({})
+export const CryptoContext = createContext({});
 
-//Создание компонента provider 
-export const CryptoProvder=({children})=>{
-const [cryptoData,setCryptoData]=useState();
+//Создание компонента provider
+export const CryptoProvider = ({ children }) => {
+  const [cryptoData, setCryptoData] = useState();
 
-const getCryptoData = async()=>{
+  const getCryptoData = async () => {
     try {
-        const data = await fetch(``)
+      const res = await fetch(
+        `https://api.coincap.io/v2/assets?limit=150` // Добавлен протокол "https://"
+      )
+      //https://assets.coincap.io/assets/icons/{symbol}@2x.png
+      const data= await res.json()
+      console.log(data.data);
+      setCryptoData(data.data);
     } catch (error) {
-        console.log(error)
+      console.log(error);
     }
-}
-    return(
-        <CryptoContext.Provider value={{  }}>
-            {children}    
-        </CryptoContext.Provider>
+  };
 
-    )
-}
+  useLayoutEffect(() => {
+    getCryptoData();
+  }, []);
+  return (
+    <CryptoContext.Provider value={{ cryptoData }}>
+      {children}
+    </CryptoContext.Provider>
+  );
+};
